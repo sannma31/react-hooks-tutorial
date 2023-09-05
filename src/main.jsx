@@ -1,19 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
+import { createContext } from 'react';
 
 const shincondeInfo = {
-  name:"shincode",
+  name: "shincode",
   age: 24,
 };
 
-const ShinCodetext = createContext(shincondeInfo);
+const ShinCodeContext = createContext(shincondeInfo);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ShinCodetext.Provider value ={shincondeInfo}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  </ShinCodetext.Provider>
-)
+  <ShinCodeContext.Provider value={shincondeInfo}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ShinCodeContext.Provider>
+);
+
+export { ShinCodeContext };
